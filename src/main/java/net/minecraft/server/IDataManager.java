@@ -1,28 +1,30 @@
 package net.minecraft.server;
 
 import java.io.File;
+import java.util.UUID;
 
-public interface IDataManager {
-
-    WorldData getWorldData();
-
-    void checkSession() throws ExceptionWorldConflict; // CraftBukkit - throws ExceptionWorldConflict
-
-    IChunkLoader createChunkLoader(WorldProvider worldprovider);
-
-    void saveWorldData(WorldData worlddata, NBTTagCompound nbttagcompound);
-
-    void saveWorldData(WorldData worlddata);
-
-    IPlayerFileData getPlayerFileData();
-
-    void a();
-
-    File getDirectory();
-
-    File getDataFile(String s);
-
-    String g();
-
-    java.util.UUID getUUID(); // CraftBukkit
+public abstract interface IDataManager
+{
+  public abstract WorldData getWorldData();
+  
+  public abstract void checkSession()
+    throws ExceptionWorldConflict;
+  
+  public abstract IChunkLoader createChunkLoader(WorldProvider paramWorldProvider);
+  
+  public abstract void saveWorldData(WorldData paramWorldData, NBTTagCompound paramNBTTagCompound);
+  
+  public abstract void saveWorldData(WorldData paramWorldData);
+  
+  public abstract IPlayerFileData getPlayerFileData();
+  
+  public abstract void a();
+  
+  public abstract File getDirectory();
+  
+  public abstract File getDataFile(String paramString);
+  
+  public abstract String g();
+  
+  public abstract UUID getUUID();
 }

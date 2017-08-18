@@ -1,48 +1,49 @@
 package net.minecraft.server;
 
-import org.bukkit.craftbukkit.entity.CraftHumanEntity; // CraftBukkit
+import java.util.List;
+import org.bukkit.craftbukkit.v1_7_R4.entity.CraftHumanEntity;
+import org.bukkit.entity.HumanEntity;
+import org.bukkit.inventory.InventoryHolder;
 
-public interface IInventory {
-
-    int getSize();
-
-    ItemStack getItem(int i);
-
-    ItemStack splitStack(int i, int j);
-
-    ItemStack splitWithoutUpdate(int i);
-
-    void setItem(int i, ItemStack itemstack);
-
-    String getInventoryName();
-
-    boolean k_();
-
-    int getMaxStackSize();
-
-    void update();
-
-    boolean a(EntityHuman entityhuman);
-
-    void startOpen();
-
-    void closeContainer();
-
-    boolean b(int i, ItemStack itemstack);
-
-    // CraftBukkit start
-    ItemStack[] getContents();
-
-    void onOpen(CraftHumanEntity who);
-
-    void onClose(CraftHumanEntity who);
-
-    java.util.List<org.bukkit.entity.HumanEntity> getViewers();
-
-    org.bukkit.inventory.InventoryHolder getOwner();
-
-    void setMaxStackSize(int size);
-
-    int MAX_STACK = 64;
-    // CraftBukkit end
+public abstract interface IInventory
+{
+  public static final int MAX_STACK = 64;
+  
+  public abstract int getSize();
+  
+  public abstract ItemStack getItem(int paramInt);
+  
+  public abstract ItemStack splitStack(int paramInt1, int paramInt2);
+  
+  public abstract ItemStack splitWithoutUpdate(int paramInt);
+  
+  public abstract void setItem(int paramInt, ItemStack paramItemStack);
+  
+  public abstract String getInventoryName();
+  
+  public abstract boolean k_();
+  
+  public abstract int getMaxStackSize();
+  
+  public abstract void update();
+  
+  public abstract boolean a(EntityHuman paramEntityHuman);
+  
+  public abstract void startOpen();
+  
+  public abstract void closeContainer();
+  
+  public abstract boolean b(int paramInt, ItemStack paramItemStack);
+  
+  public abstract ItemStack[] getContents();
+  
+  public abstract void onOpen(CraftHumanEntity paramCraftHumanEntity);
+  
+  public abstract void onClose(CraftHumanEntity paramCraftHumanEntity);
+  
+  public abstract List<HumanEntity> getViewers();
+  
+  public abstract InventoryHolder getOwner();
+  
+  public abstract void setMaxStackSize(int paramInt);
 }

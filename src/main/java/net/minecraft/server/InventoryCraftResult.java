@@ -1,96 +1,96 @@
 package net.minecraft.server;
 
-// CraftBukkit start
-import org.bukkit.craftbukkit.entity.CraftHumanEntity;
+import java.util.ArrayList;
+import org.bukkit.craftbukkit.v1_7_R4.entity.CraftHumanEntity;
 import org.bukkit.entity.HumanEntity;
-// CraftBukkit end
+import org.bukkit.inventory.InventoryHolder;
 
-public class InventoryCraftResult implements IInventory {
+public class InventoryCraftResult implements IInventory
+{
+  private ItemStack[] items = new ItemStack[1];
+  
 
-    private ItemStack[] items = new ItemStack[1];
+  private int maxStack = 64;
+  
+  public ItemStack[] getContents() {
+    return this.items;
+  }
+  
+  public InventoryHolder getOwner() {
+    return null;
+  }
+  
+  public void onOpen(CraftHumanEntity who) {}
+  
+  public void onClose(CraftHumanEntity who) {}
+  
+  public java.util.List<HumanEntity> getViewers() { return new ArrayList(); }
+  
+  public void setMaxStackSize(int size)
+  {
+    this.maxStack = size;
+  }
+  
 
-    // CraftBukkit start
-    private int maxStack = MAX_STACK;
 
-    public ItemStack[] getContents() {
-        return this.items;
+  public int getSize()
+  {
+    return 1;
+  }
+  
+  public ItemStack getItem(int i) {
+    return this.items[0];
+  }
+  
+  public String getInventoryName() {
+    return "Result";
+  }
+  
+  public boolean k_() {
+    return false;
+  }
+  
+  public ItemStack splitStack(int i, int j) {
+    if (this.items[0] != null) {
+      ItemStack itemstack = this.items[0];
+      
+      this.items[0] = null;
+      return itemstack;
     }
-
-    public org.bukkit.inventory.InventoryHolder getOwner() {
-        return null; // Result slots don't get an owner
+    return null;
+  }
+  
+  public ItemStack splitWithoutUpdate(int i)
+  {
+    if (this.items[0] != null) {
+      ItemStack itemstack = this.items[0];
+      
+      this.items[0] = null;
+      return itemstack;
     }
-
-    // Don't need a transaction; the InventoryCrafting keeps track of it for us
-    public void onOpen(CraftHumanEntity who) {}
-    public void onClose(CraftHumanEntity who) {}
-    public java.util.List<HumanEntity> getViewers() {
-        return new java.util.ArrayList<HumanEntity>();
-    }
-
-    public void setMaxStackSize(int size) {
-        maxStack = size;
-    }
-    // CraftBukkit end
-
-    public InventoryCraftResult() {}
-
-    public int getSize() {
-        return 1;
-    }
-
-    public ItemStack getItem(int i) {
-        return this.items[0];
-    }
-
-    public String getInventoryName() {
-        return "Result";
-    }
-
-    public boolean k_() {
-        return false;
-    }
-
-    public ItemStack splitStack(int i, int j) {
-        if (this.items[0] != null) {
-            ItemStack itemstack = this.items[0];
-
-            this.items[0] = null;
-            return itemstack;
-        } else {
-            return null;
-        }
-    }
-
-    public ItemStack splitWithoutUpdate(int i) {
-        if (this.items[0] != null) {
-            ItemStack itemstack = this.items[0];
-
-            this.items[0] = null;
-            return itemstack;
-        } else {
-            return null;
-        }
-    }
-
-    public void setItem(int i, ItemStack itemstack) {
-        this.items[0] = itemstack;
-    }
-
-    public int getMaxStackSize() {
-        return maxStack; // CraftBukkit
-    }
-
-    public void update() {}
-
-    public boolean a(EntityHuman entityhuman) {
-        return true;
-    }
-
-    public void startOpen() {}
-
-    public void closeContainer() {}
-
-    public boolean b(int i, ItemStack itemstack) {
-        return true;
-    }
+    return null;
+  }
+  
+  public void setItem(int i, ItemStack itemstack)
+  {
+    this.items[0] = itemstack;
+  }
+  
+  public int getMaxStackSize() {
+    return this.maxStack;
+  }
+  
+  public void update() {}
+  
+  public boolean a(EntityHuman entityhuman) {
+    return true;
+  }
+  
+  public void startOpen() {}
+  
+  public void closeContainer() {}
+  
+  public boolean b(int i, ItemStack itemstack) {
+    return true;
+  }
 }

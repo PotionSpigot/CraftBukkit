@@ -1,14 +1,19 @@
 package net.minecraft.server;
 
-public interface IRecipe {
+import java.util.List;
+import org.bukkit.inventory.Recipe;
 
-    boolean a(InventoryCrafting inventorycrafting, World world);
-
-    ItemStack a(InventoryCrafting inventorycrafting);
-
-    int a();
-
-    ItemStack b();
-
-    org.bukkit.inventory.Recipe toBukkitRecipe(); // CraftBukkit
+public abstract interface IRecipe
+{
+  public abstract boolean a(InventoryCrafting paramInventoryCrafting, World paramWorld);
+  
+  public abstract ItemStack a(InventoryCrafting paramInventoryCrafting);
+  
+  public abstract int a();
+  
+  public abstract ItemStack b();
+  
+  public abstract Recipe toBukkitRecipe();
+  
+  public abstract List<ItemStack> getIngredients();
 }

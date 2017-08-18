@@ -1,60 +1,59 @@
 package net.minecraft.server;
 
-// CraftBukkit start
 import java.util.List;
-import org.bukkit.craftbukkit.entity.CraftHumanEntity;
+import org.bukkit.craftbukkit.v1_7_R4.entity.CraftHumanEntity;
+import org.bukkit.entity.Horse;
 import org.bukkit.entity.HumanEntity;
-// CraftBukkit end
 
-public class InventoryHorseChest extends InventorySubcontainer {
+public class InventoryHorseChest extends InventorySubcontainer
+{
+  public InventoryHorseChest(String s, int i)
+  {
+    super(s, false, i);
+  }
+  
 
-    public InventoryHorseChest(String s, int i) {
-        super(s, false, i);
-    }
-
-    // CraftBukkit start - add fields and methods
-    public List<HumanEntity> transaction = new java.util.ArrayList<HumanEntity>();
-    private EntityHorse horse;
-    private int maxStack = MAX_STACK;
-
-    public InventoryHorseChest(String s, int i, EntityHorse horse) {
-        this(s, i);
-        this.horse = horse;
-    }
-
-    @Override
-    public ItemStack[] getContents() {
-        return this.items;
-    }
-
-    @Override
-    public void onOpen(CraftHumanEntity who) {
-        transaction.add(who);
-    }
-
-    @Override
-    public void onClose(CraftHumanEntity who) {
-        transaction.remove(who);
-    }
-
-    @Override
-    public List<HumanEntity> getViewers() {
-        return transaction;
-    }
-
-    @Override
-    public org.bukkit.inventory.InventoryHolder getOwner() {
-        return (org.bukkit.entity.Horse) this.horse.getBukkitEntity();
-    }
-
-    @Override
-    public void setMaxStackSize(int size) {
-        maxStack = size;
-    }
-
-    @Override
-    public int getMaxStackSize() {
-        return maxStack;
-    }
-    // CraftBukkit end
+  public List<HumanEntity> transaction = new java.util.ArrayList();
+  private EntityHorse horse;
+  private int maxStack = 64;
+  
+  public InventoryHorseChest(String s, int i, EntityHorse horse) {
+    this(s, i);
+    this.horse = horse;
+  }
+  
+  public ItemStack[] getContents()
+  {
+    return this.items;
+  }
+  
+  public void onOpen(CraftHumanEntity who)
+  {
+    this.transaction.add(who);
+  }
+  
+  public void onClose(CraftHumanEntity who)
+  {
+    this.transaction.remove(who);
+  }
+  
+  public List<HumanEntity> getViewers()
+  {
+    return this.transaction;
+  }
+  
+  public org.bukkit.inventory.InventoryHolder getOwner()
+  {
+    return (Horse)this.horse.getBukkitEntity();
+  }
+  
+  public void setMaxStackSize(int size)
+  {
+    this.maxStack = size;
+  }
+  
+  public int getMaxStackSize()
+  {
+    return this.maxStack;
+  }
 }
