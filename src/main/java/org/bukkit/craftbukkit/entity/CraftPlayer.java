@@ -1287,4 +1287,24 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
         }
         collection.add(new AttributeModifiable(getHandle().getAttributeMap(), (new AttributeRanged("generic.maxHealth", scaledHealth ? healthScale : getMaxHealth(), 0.0D, Float.MAX_VALUE)).a("Max Health").a(true)));
     }
+
+    public List<UUID> getShowEntities()
+    {
+        return getHandle().getShowEntities();
+    }
+
+    public void setShowEntities(List<UUID> list)
+    {
+        getHandle().setShowEntities(list);
+    }
+
+    public void addShowEntities(UUID uuid)
+    {
+        getHandle().addShowEntities(uuid);
+    }
+
+    public void removeShowEntities(UUID uuid)
+    {
+        getHandle().removeShowEntities(uuid);
+    }
 }

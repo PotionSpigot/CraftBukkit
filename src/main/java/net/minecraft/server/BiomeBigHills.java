@@ -2,14 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-
-
-
-
-
-
-public class BiomeBigHills
-  extends BiomeBase
+public class BiomeBigHills extends BiomeBase
 {
   private WorldGenerator aC = new WorldGenMinable(Blocks.MONSTER_EGGS, 8);
   private WorldGenTaiga2 aD = new WorldGenTaiga2(false);

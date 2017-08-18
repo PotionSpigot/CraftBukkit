@@ -3,18 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-
-
-
-
-
-
-
-
-
-
-public class BiomeForest
-  extends BiomeBase
+public class BiomeForest extends BiomeBase
 {
   private int aF;
   protected static final WorldGenForest aC = new WorldGenForest(false, true);

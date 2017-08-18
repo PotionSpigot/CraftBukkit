@@ -1,18 +1,6 @@
 package net.minecraft.server;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 public class BiomeCacheBlock
 {
   public float[] a = new float['Ā'];

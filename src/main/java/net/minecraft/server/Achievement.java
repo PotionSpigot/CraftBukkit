@@ -2,10 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 
-
-
-public class Achievement
-  extends Statistic
+public class Achievement extends Statistic
 {
   public final int a;
   public final int b;

@@ -3,9 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-
-public class BiomeDesert
-  extends BiomeBase
+public class BiomeDesert extends BiomeBase
 {
   public BiomeDesert(int paramInt)
   {

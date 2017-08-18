@@ -3,35 +3,6 @@ package net.minecraft.server;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class BiomeCache
 {
   private final WorldChunkManager a;
@@ -60,9 +31,6 @@ public class BiomeCache
   public BiomeBase b(int paramInt1, int paramInt2) {
     return a(paramInt1, paramInt2).a(paramInt1, paramInt2);
   }
-  
-
-
 
   public void a()
   {

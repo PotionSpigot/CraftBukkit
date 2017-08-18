@@ -3,9 +3,7 @@ package net.minecraft.server;
 import java.util.ArrayList;
 import java.util.Random;
 
-
-public class BiomeBaseSub
-  extends BiomeBase
+public class BiomeBaseSub extends BiomeBase
 {
   protected BiomeBase aD;
   
@@ -60,16 +58,6 @@ public class BiomeBaseSub
   {
     return this.aD.a(paramRandom);
   }
-  
-
-
-
-
-
-
-
-
-
 
   public Class l()
   {
